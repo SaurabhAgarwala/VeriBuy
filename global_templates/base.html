@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta-charset="utf-18">
+        <title>VeriBuy</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    </head>
+    <body>
+        <header>
+            <h1><a href="{% url 'smartcontract:list' %}">#..LOGO..#</a></h1>
+            <div class="nav">
+                {% if user.is_authenticated %}
+                <ul>
+                    <li>
+                        <form class="logout-view" action="{% url 'accounts:logout' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="submit" value="Log Out">
+                        </form>
+                    </li>
+                    <a href="{% url 'smartcontract:create' %}">Create New Article</a>
+                </ul>
+                {% else %}
+                <a href="{% url 'accounts:login' %}">LogIn</a>
+                <a href="{% url 'accounts:signup' %}">SignUp</a>
+                {% endif %}
+            </div>
+        </header>
+        <div class="wrap">
+            {% block one %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
+    
