@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block one %}
+    <div class="create_product">
+        <h1>This is the Page to add a new product</h1>
+        <form class="product_create" action="{% url 'smartcontract:create' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Add Product">
+        </form>
+    </div>
+    <!-- <script src="/static/slugify.js"></script> -->
+{% endblock %}
