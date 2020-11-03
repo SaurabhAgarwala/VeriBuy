@@ -27,3 +27,20 @@ def product_new(request):
     else:
         form = forms.ProductForm
     return render(request, 'smartcontract/product_create.html', {'form':form})
+
+@login_required(login_url="/accounts/login/")
+def change_owner(request, id):
+    if request.method == "POST":
+        form = forms.EditOwnerForm(request.POST)
+        
+        if form.is_valid():
+            Product.objects.filter(id=id).update(
+                owner=form.cleaned_data["owner"],
+            )
+            return redirect('smartcontract:list')
+    else:
+        product = Product.objects.get(id=id)
+        form = forms.EditOwnerForm(instance=product)
+        return render(
+            request, "smartcontract/transfer_ownership.html", {'form':form, 'product': product}
+        )

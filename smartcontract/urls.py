@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^product/$', views.product_list, name="list"),
     url(r'^product/create/$', views.product_new, name="create"),
     url(r'^product/(?P<id>[\w-]+)/$', views.product_disp, name="disp"),
+    url(r'^product/transfer/(?P<id>[\w-]+)/$', views.change_owner, name="transfer"),
 ]
