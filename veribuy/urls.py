@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^smartcontract/', include('smartcontract.urls')),
     url(r'^accounts/', include('accounts.urls')),
-    # url(r'^$', views.article_list, name="home"),
+    # url(r'^$', views.product_list, name="home"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

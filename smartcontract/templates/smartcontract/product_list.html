@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block one %}
+    <h1>The following is the list of all the products:</h1>
+    <div class="products">
+        {% for product in products %}
+            <h2><a href="{% url 'smartcontract:disp' id=product.id %}">{{ product.name }}</a></h2>
+            <p>{{ product.desc }}</p>
+            <p>Current Owner: {{ product.owner.username }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

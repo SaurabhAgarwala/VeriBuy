@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block one %}
+    <div class="product-disp">
+        <div class="product">
+            <h2>Product Details:</h2>
+            <h3>{{ product.name }}</h3>
+            <h5>{{ product.desc }}</h5>
+            <p>Manufactured By: {{ product.manufacturer.username }}</p>
+            <p>Retailer: {{ product.retailer.username }}</p>
+            <p>Current Owner: {{ product.owner.username }}</p>
+        </div>
+    </div>
+{% endblock %}

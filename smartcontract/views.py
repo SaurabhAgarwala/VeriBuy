@@ -21,6 +21,7 @@ def product_new(request):
         if form.is_valid():
             s_instance = form.save(commit=False)
             s_instance.manufacturer = request.user
+            s_instance.owner = s_instance.retailer
             s_instance.save()
             return redirect('smartcontract:list')
     else:
